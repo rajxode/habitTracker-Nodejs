@@ -17,12 +17,8 @@ app.set('view engine','ejs');
 // defining path of result file with respect to current file
 app.set('views',path.join(__dirname,'views'));
 
-
-// returning responses  { get(path ,function ) }
-app.get('/',function(request, response){
-    return response.render('home');
-});
-
+// setting up routes
+app.use('/',require('./routes'));
 
 // starting server
 app.listen(port,function(err){
