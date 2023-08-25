@@ -27,7 +27,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form method="post">
+            <form id="habitForm" action="/create-habit" method="post">
                 <div class="mb-3">
                     <label for="name" class="form-label">Habit Name</label>
                     <input type="text" name="name" class="form-control" 
@@ -37,7 +37,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Add Habit</button>
+          <button type="submit" form="habitForm" class="btn btn-primary">Add Habit</button>
         </div>
       </div>
     </div>

@@ -1,4 +1,34 @@
 
-<div class="w-full h-full bg-secondary-subtle">
-    This is habits page
+<div class="w-100 h-100 rounded bg-secondary-subtle p-4 overflow-auto">
+    
+    <div class="w-100">
+        
+        <nav class="navbar rounded bg-white">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1">
+                    Your Habits
+                </span>
+                <span class="navbar-brand mb-0 h1">
+                    <%= date %>
+                </span>
+            </div>
+        </nav>
+
+        <div class="w-100 h-75 d-flex flex-column align-items-center mt-3 flex-wrap p-2 overflow-y-auto">
+
+            <% for (let i of myHabits) { %>
+
+                <div class="w-75 bg-danger m-2 rounded shadow p-2">
+                    
+                    <%= i.name %>
+
+                </div>
+            
+            <% } %>
+
+            
+        </div>
+
+    </div>
+
 </div>
