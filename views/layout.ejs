@@ -3,18 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/images/icon.png">
     <title>Habit Tracker</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" 
             rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" 
             crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="/css/style.css">
   </head>
   <body class="vw-100 vh-100">
 
     <!-- including header partial -->
     <%- include('_header') %>
 
-    <div class="w-100 bg-danger-subtle"> 
+    <div id="mainContainer" class="w-100 p-2 d-flex justify-content-around"> 
         <!-- for the variable part of the website -->
         <%- body %>
     </div>

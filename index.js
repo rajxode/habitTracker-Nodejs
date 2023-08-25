@@ -12,6 +12,9 @@ const port=1000;
 // app having all the function of express and firing up our framework 
 const app=express();
 
+app.use(express.urlencoded()); 
+app.use(express.static('assets'));
+
 // importing layouts 
 const expressLayouts =  require('express-ejs-layouts');
 

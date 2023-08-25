@@ -1,0 +1,11 @@
+#mainContainer{
+    height: 92%;
+    background-image: url('/images/backgroundImage.jpg');
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#addHabitContainer{
+    height: 15%;
+}
