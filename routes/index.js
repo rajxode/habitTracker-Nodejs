@@ -11,6 +11,8 @@ const homeController = require('../controller/homeController');
 // calling controller for the home page
 router.get('/',homeController.home);
 
+router.post('/create-habit',homeController.createHabit);
+
 router.use('/my-habits',require('./myHabits'));
 
 // exporting the router for outside use
