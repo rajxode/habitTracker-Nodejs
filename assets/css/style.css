@@ -1,3 +1,15 @@
+/* styling the scrollbar  */
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: #676768; 
+    border-radius: 10px;
+    height: 10px;
+}
+
 #mainContainer{
     height: 92%;
     background-image: url('/images/backgroundImage.jpg');
