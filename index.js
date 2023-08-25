@@ -8,6 +8,8 @@ const path=require('path');
 // port id
 const port=1000;
 
+// importing mongoose file form config folder
+const database=require('./config/mongoose');
 
 // app having all the function of express and firing up our framework 
 const app=express();
