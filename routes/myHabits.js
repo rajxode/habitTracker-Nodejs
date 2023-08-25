@@ -6,12 +6,10 @@ const express= require('express');
 const router = express.Router();
 
 // getting home controller for the router
-const homeController = require('../controller/homeController');
+const myHabitsController = require('../controller/myHabitsController');
 
 // calling controller for the home page
-router.get('/',homeController.home);
-
-router.use('/my-habits',require('./myHabits'));
+router.get('/',myHabitsController.home);
 
 // exporting the router for outside use
 module.exports = router;
