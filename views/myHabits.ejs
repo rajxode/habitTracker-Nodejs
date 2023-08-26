@@ -1,4 +1,6 @@
 
+
+
 <div class="w-100 h-100 rounded bg-secondary-subtle p-4 overflow-auto">
     
     <div class="w-100">
@@ -18,9 +20,62 @@
 
             <% for (let i of myHabits) { %>
 
-                <div class="w-75 bg-danger m-2 rounded shadow p-2">
+                <div class="w-75 bg-primary-subtle m-2 h-auto rounded shadow p-2 d-flex flex-column">
                     
-                    <%= i.name %>
+                    <div class="w-100 d-flex justify-content-between p-2">
+                        <div class="fw-bold fs-5">
+                            
+                            <%= i.name %>
+                            <br/>
+                            <small class="mt-0 fw-medium fs-6"> 
+                                <%= i.completedDays %> / 7 days
+                            </small>
+                        </div>
+
+                        <div class="fw-semibold">
+                            Added on :<%= i.createdAt %>
+                        </div>
+                    </div>
+
+                    <div class="w-full d-flex justify-content-between p-2 flex-wrap">
+                        
+                        <% i.weeklyStatus.map((day,index) => { %>
+
+                            <div class="card border-primary mb-3" style="max-width: 10rem;">
+                                <div class="card-header"><%= weekDays[index] %></div>
+                                <div class="card-body text-secondary d-flex justify-content-between h4">
+                                  <!-- <div class="card-text text-center"> -->
+                                    <a href="/my-habits/toggle-status/?id=<%=i.id%>&i=<%=index%>&status=true" class="m-1 text-decoration-none text-secondary">
+                                        <!-- <button type="button" class="btn" data-bs-toggle="button"> -->
+                                            <i class="fa-solid fa-circle-check"></i>
+                                        <!-- </button>                                 -->
+                                    </a>
+
+                                    <a href="/my-habits/toggle-status/?id=<%=i.id%>&i=<%=index%>&status=false" class="m-1 text-decoration-none text-secondary">
+                                        <!-- <button type="button" class="btn" data-bs-toggle="button"> -->
+                                            <i class="fa-solid fa-circle-xmark"></i>
+                                        <!-- </button> -->
+                                    </a>
+                                        
+                                    <a href="/my-habits/toggle-status/?id=<%=i.id%>&i=<%=index%>&status=null" class="m-1 text-decoration-none text-secondary">
+                                        <!-- <button type="button" class="btn" data-bs-toggle="button"> -->
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        <!-- </button> -->
+                                    </a>
+                                  <!-- </p> -->
+                                </div>
+                            </div>
+                            
+
+                            <!-- <% if(day === null) { %>                                
+                                
+                                yes
+
+                            <% } %>     -->
+
+                        <% }) %>
+
+                    </div>
 
                 </div>
             
