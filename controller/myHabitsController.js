@@ -33,4 +33,10 @@ module.exports.home =async function(req,res){
 
 module.exports.toggleStatus = async function(req,res){
     let id = req.query.id;
+    let index = req.query.i;
+    let status = req.query.status;
+    const user = await Habits.findOne({_id:id});
+    user.weeklyStatus[index] = status;
+    await user.save();
+    return res.redirect('back');
 }
