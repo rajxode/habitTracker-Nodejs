@@ -21,3 +21,7 @@
 #addHabitContainer{
     height: 15%;
 }
+
+#habitList{
+    height: 80%;
+}

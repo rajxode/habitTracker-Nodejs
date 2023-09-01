@@ -2,9 +2,12 @@ const Habits = require('../models/habits');
 
 
 // rendering home page on website
-module.exports.home= function(req,res){    
-        // rendering homepage and posts
-    return res.render('home');
+module.exports.home= async function(req,res){    
+    // rendering homepage and 
+    const myHabits = await Habits.find({});
+    return res.render('home',{
+        myHabits:myHabits
+    });
 }
 
 

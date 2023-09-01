@@ -1,5 +1,7 @@
 
-<div id="addHabitContainer" class="w-50 d-flex flex-column justify-content-around align-item bg-secondary-subtle shadow rounded mt-1 p-4">
+<div class="w-100 d-flex flex-column justify-content-between align-items-center">
+
+  <div id="addHabitContainer" class="container d-flex flex-column justify-content-around align-item bg-secondary-subtle shadow rounded mt-1 p-4">
 
     <div class="w-100">
         
@@ -42,5 +44,31 @@
       </div>
     </div>
   </div>
+
+</div>
+
+
+<div id="habitList" class="container mb-2 overflow-y-scroll overflow-x-hidden p-1 px-2 bg-secondary-subtle rounded shadow-sm">
+
+  <h1 class="text-center">
+    Your Habit List
+  </h1>
+
+  <% for (let i of myHabits) { %>
+
+    <div class="w-100 h-auto d-flex justify-content-between align-items-center bg-info-subtle my-2 p-2 shadow-sm rounded fw-bold">
+      <div class="px-1">
+        <%= i.name %>
+      </div>
+      
+      <div class="px-1">
+        <%= i.completedDays %> / 7 Days | Today: <%= i.weeklyStatus[6] === 'true' ? 'Done' : 'Not Done' %>
+      </div>
+
+    </div>
+    
+  <% } %>
+
+</div>
 
 </div>
