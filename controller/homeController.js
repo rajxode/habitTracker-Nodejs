@@ -16,7 +16,7 @@ module.exports.createHabit =async function(request,response){
     const weekStatus = Array(7).fill(null);
     
     // creating new element in mongodb
-    const doc = Habits.create({
+    const doc =await Habits.create({
     // getting the value of name and phone
         name:request.body.name,
         createdAt:date,

@@ -19,7 +19,7 @@ const HabitsSchema = new mongoose.Schema({
     },
     weeklyStatus:[
         {
-            type:Boolean,
+            type:String,
             require:true
         },
     ],

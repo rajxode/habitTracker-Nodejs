@@ -44,34 +44,29 @@
                             <div class="card mb-3 shadow" style="max-width: 11rem;">
                                 <div class="card-header"><%= weekDays[index] %></div>
                                 <div class="card-body text-secondary d-flex justify-content-between h4">
-                                  <!-- <div class="card-text text-center"> -->
-                                    <a href="/my-habits/toggle-status/?id=<%=i.id%>&i=<%=index%>&status=true" class="m-1 text-decoration-none text-secondary">
-                                        <!-- <button type="button" class="btn" data-bs-toggle="button"> -->
+                                  
+                                    <a href="/my-habits/toggle-status/?id=<%=i.id%>&i=<%=index%>&status=true" 
+                                        class="m-1 text-decoration-none <%= day === 'true' ? 'text-success' : 'text-body-tertiary' %>">
+                                        
                                             <i class="fa-solid fa-circle-check"></i>
-                                        <!-- </button>                                 -->
+                                        
                                     </a>
 
-                                    <a href="/my-habits/toggle-status/?id=<%=i.id%>&i=<%=index%>&status=false" class="m-1 text-decoration-none text-secondary">
-                                        <!-- <button type="button" class="btn" data-bs-toggle="button"> -->
+                                    <a href="/my-habits/toggle-status/?id=<%=i.id%>&i=<%=index%>&status=false" 
+                                        class="m-1 text-decoration-none <%= day === 'false' ? 'text-danger' : 'text-body-tertiary' %>">
+                                        
                                             <i class="fa-solid fa-circle-xmark"></i>
-                                        <!-- </button> -->
+                                        
                                     </a>
                                         
-                                    <a href="/my-habits/toggle-status/?id=<%=i.id%>&i=<%=index%>&status=null" class="m-1 text-decoration-none text-secondary">
-                                        <!-- <button type="button" class="btn" data-bs-toggle="button"> -->
+                                    <a href="/my-habits/toggle-status/?id=<%=i.id%>&i=<%=index%>&status=null" 
+                                        class="m-1 text-decoration-none <%= day === 'null' || day === null ? 'text-info' : 'text-body-tertiary' %>">
                                             <i class="fa-solid fa-ellipsis"></i>
-                                        <!-- </button> -->
                                     </a>
-                                  <!-- </p> -->
+                                  
                                 </div>
                             </div>
                             
-
-                            <!-- <% if(day === null) { %>                                
-                                
-                                yes
-
-                            <% } %>     -->
 
                         <% }) %>
 
