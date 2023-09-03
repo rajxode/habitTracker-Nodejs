@@ -9,7 +9,7 @@ const CalculateDayOfWeek = (date) => {
     for (var i = 6; i >= 0; i--){
         // store values in the form of string
         days[6-i] = new Date(date.getFullYear(), date.getMonth(), date.getDate() - i).toString();
-        days[6-i] = `${days[6-i].slice(0,4)}, ${days[6-i].slice(4,15)}`;
+        days[6-i] = `${days[6-i].slice(0,4)}, ${days[6-i].slice(4,11)}`;
     }
     // return the array of dates
     return days;

@@ -41,26 +41,26 @@
                         
                         <% i.weeklyStatus.map((day,index) => { %>
 
-                            <div class="card mb-3 shadow" style="max-width: 11rem;">
-                                <div class="card-header"><%= weekDays[index] %></div>
-                                <div class="card-body text-secondary d-flex justify-content-between h4">
+                            <div class="card mb-3 shadow" style="max-width: 10rem;">
+                                <div class="card-header fw-bolder"><%= weekDays[index] %></div>
+                                <div class="card-body text-secondary d-flex justify-content-between">
                                   
                                     <a href="/my-habits/toggle-status/?id=<%=i.id%>&i=<%=index%>&status=true" 
-                                        class="m-1 text-decoration-none <%= day === 'true' ? 'text-success' : 'text-body-tertiary' %>">
+                                        class="m-1 text-decoration-none <%= day === 'true' ? 'text-success h4' : 'text-body-tertiary h5' %>">
                                         
                                             <i class="fa-solid fa-circle-check"></i>
                                         
                                     </a>
 
                                     <a href="/my-habits/toggle-status/?id=<%=i.id%>&i=<%=index%>&status=false" 
-                                        class="m-1 text-decoration-none <%= day === 'false' ? 'text-danger' : 'text-body-tertiary' %>">
+                                        class="m-1 text-decoration-none <%= day === 'false' ? 'text-danger h4' : 'text-body-tertiary h5' %>">
                                         
                                             <i class="fa-solid fa-circle-xmark"></i>
                                         
                                     </a>
                                         
                                     <a href="/my-habits/toggle-status/?id=<%=i.id%>&i=<%=index%>&status=null" 
-                                        class="m-1 text-decoration-none <%= day === 'null' || day === null ? 'text-info' : 'text-body-tertiary' %>">
+                                        class="m-1 text-decoration-none <%= day === 'null' || day === null ? 'text-info h4' : 'text-body-tertiary h5' %>">
                                             <i class="fa-solid fa-ellipsis"></i>
                                     </a>
                                   
