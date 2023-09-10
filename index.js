@@ -1,4 +1,6 @@
 
+require('dotenv').config();
+
 // exporting all the function and libraries of express
 const express=require('express');
 
@@ -6,7 +8,7 @@ const express=require('express');
 const path=require('path');
 
 // port id
-const port=1000;
+const {PORT} = process.env;
 
 // importing mongoose file form config folder
 const database=require('./config/mongoose');
@@ -37,10 +39,10 @@ app.set('views','./views');
 app.use('/',require('./routes'));
 
 // starting server
-app.listen(port,function(err){
+app.listen(PORT,function(err){
     if(err){
         console.log('Error',err);
         return;
     }
-    console.log("Hello World");
+    console.log(`server is running on port:${PORT}`);
 });

@@ -49,7 +49,6 @@ module.exports.toggleStatus = async function(req,res){
         }
         user.weeklyStatus[index] = status;
         await user.save();
-        console.log(user);
         return res.redirect('back');
     }
     catch(err){
