@@ -12,16 +12,43 @@
 
 #mainContainer{
     height: 92%;
-    background-image: url('/images/backgroundImage.jpg');
-    background-size:cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-color: #FDE5EC;
 }
 
 #addHabitContainer{
     height: 15%;
+    background-color: #85E6C5;
+}
+
+#addHabitContainer span{
+    color: #33BBC5;
 }
 
 #habitList{
     height: 80%;
+    background-color: #DFCCFB;
+}
+
+#habitList h1{
+    color:#6F61C0;
+}
+
+.list-item{
+    background-color: #A084E8;
+}
+
+.add-btn{
+    background-color: #33BBC5;
+    color:white;
+}
+
+.add-btn:hover{
+    border: 2px solid #33BBC5;
+    color: #33BBC5;
+    font-weight: 700;
+}
+
+.day-card{
+    background-color: #FFF0F5;
+    color:#322653;
 }

@@ -1,7 +1,8 @@
 
 <div class="w-100 d-flex flex-column justify-content-between align-items-center">
 
-  <div id="addHabitContainer" class="container d-flex flex-column justify-content-around align-item bg-secondary-subtle shadow rounded mt-1 p-4">
+  <div id="addHabitContainer" class="container d-flex flex-column justify-content-around 
+                                align-item shadow rounded mt-1 p-4">
 
     <div class="w-100">
         
@@ -10,7 +11,7 @@
                 <span class="navbar-brand mb-0 h1">
                     Add New Habits
                 </span>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn add-btn shadow" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Add Habit
                 </button>
             </div>
@@ -38,8 +39,8 @@
             </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" form="habitForm" class="btn btn-primary">Add Habit</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="submit" form="habitForm" class="btn add-btn shadow">Add Habit</button>
         </div>
       </div>
     </div>
@@ -48,7 +49,7 @@
 </div>
 
 
-<div id="habitList" class="container mb-2 overflow-y-scroll overflow-x-hidden p-1 px-2 bg-secondary-subtle rounded shadow-sm">
+<div id="habitList" class="container mb-2 overflow-y-scroll overflow-x-hidden p-1 px-2 rounded shadow-sm">
 
   <h1 class="text-center">
     Your Habit List
@@ -56,7 +57,8 @@
 
   <% for (let i of myHabits) { %>
 
-    <div class="w-100 h-auto d-flex justify-content-between align-items-center bg-info-subtle my-2 p-2 shadow-sm rounded fw-bold">
+    <div class="w-100 h-auto d-flex justify-content-between align-items-center 
+          text-white my-2 p-2 shadow-sm rounded fw-bold list-item">
       <div class="px-1">
         <%= i.name %>
       </div>

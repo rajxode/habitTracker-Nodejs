@@ -1,16 +1,16 @@
 
 
 
-<div class="w-100 h-100 rounded bg-secondary-subtle p-4 overflow-auto">
+<div class="w-100 h-100 rounded p-4 overflow-auto">
     
     <div class="w-100">
         
-        <nav class="navbar rounded bg-white">
+        <nav class="navbar bg-white rounded shadow-sm">
             <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1">
+                <span class="navbar-brand mb-0 h1 text-primary">
                     Your Habits
                 </span>
-                <span class="navbar-brand mb-0 h1">
+                <span class="navbar-brand mb-0 h1 text-primary">
                     <%= date %>
                 </span>
             </div>
@@ -20,7 +20,7 @@
 
             <% for (let i of myHabits) { %>
 
-                <div class="w-75 bg-primary-subtle m-2 h-auto rounded shadow p-2 d-flex flex-column">
+                <div class="w-75 m-2 h-auto rounded shadow p-2 d-flex flex-column list-item text-white">
                     
                     <div class="w-100 d-flex justify-content-between p-2">
                         <div class="fw-bold fs-5">
@@ -41,7 +41,7 @@
                         
                         <% i.weeklyStatus.map((day,index) => { %>
 
-                            <div class="card mb-3 shadow" style="max-width: 10rem;">
+                            <div class="card mb-3 shadow day-card" style="max-width: 10rem;">
                                 <div class="card-header fw-bolder"><%= weekDays[index] %></div>
                                 <div class="card-body text-secondary d-flex justify-content-between">
                                   

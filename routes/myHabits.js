@@ -11,8 +11,6 @@ const myHabitsController = require('../controller/myHabitsController');
 // calling controller for the home page
 router.get('/',myHabitsController.home);
 
-
-
 router.get('/toggle-status',myHabitsController.toggleStatus);
 
 // exporting the router for outside use
