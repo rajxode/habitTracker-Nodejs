@@ -1,76 +1,118 @@
 
-<div class="w-100 d-flex flex-column justify-content-between align-items-center">
-
-  <div id="addHabitContainer" class="container d-flex flex-column justify-content-around 
-                                align-item shadow rounded mt-1 p-4">
-
+<div
+  class="w-100 d-flex flex-column justify-content-between align-items-center"
+>
+  <!-- container -->
+  <div
+    id="addHabitContainer"
+    class="container d-flex flex-column justify-content-around align-item shadow rounded mt-1 p-4"
+  >
     <div class="w-100">
-        
-        <nav class="navbar rounded bg-white">
-            <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1">
-                    Add New Habits
-                </span>
-                <button type="button" class="btn add-btn shadow" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Add Habit
-                </button>
-            </div>
-        </nav>
+      <!-- header containing page heading and add habit button to show input bar -->
+      <nav class="navbar rounded bg-white">
+        <div class="container-fluid">
+          <!-- heading -->
+          <span class="navbar-brand mb-0 h1"> Add New Habits </span>
 
+          <!-- button to show add habit section -->
+          <button
+            type="button"
+            class="btn add-btn shadow"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Add Habit
+          </button>
+        </div>
+      </nav>
     </div>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">
-            Add New Habits
-          </h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
+
+    <!-- input Modal for adding a new habit -->
+    <div
+      class="modal fade"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- heading -->
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Add New Habits
+            </h1>
+            <!-- close button -->
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
             <form id="habitForm" action="/create-habit" method="post">
-                <div class="mb-3">
-                    <label for="name" class="form-label">Habit Name</label>
-                    <input type="text" name="name" class="form-control" 
-                            id="name" placeholder="Enter Name" required>
-                </div>
+              <!-- input and label -->
+              <div class="mb-3">
+                <!-- label -->
+                <label for="name" class="form-label">Habit Name</label>
+                <!-- input for habit name -->
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  id="name"
+                  placeholder="Enter Name"
+                  required
+                />
+              </div>
             </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-          <button type="submit" form="habitForm" class="btn add-btn shadow">Add Habit</button>
+          </div>
+          <div class="modal-footer">
+            <!-- submit and cancel button -->
+            <!-- close -->
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <!-- submit -->
+            <button type="submit" form="habitForm" class="btn add-btn shadow">
+              Add Habit
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-</div>
+  <!-- show list of all the habits added by the user -->
+  <div
+    id="habitList"
+    class="container mb-2 overflow-y-scroll overflow-x-hidden p-1 px-2 rounded shadow-sm"
+  >
+    <!-- heading -->
+    <h1 class="text-center">Your Habit List</h1>
 
+    <!-- list of all the habits -->
+    <% for (let i of myHabits) { %>
 
-<div id="habitList" class="container mb-2 overflow-y-scroll overflow-x-hidden p-1 px-2 rounded shadow-sm">
+    <!-- card of a single habit -->
+    <div
+      class="w-100 h-auto d-flex justify-content-between align-items-center text-white my-2 p-2 shadow-sm rounded fw-bold list-item"
+    >
+      <!-- name of habit -->
+      <div class="px-1"><%= i.name %></div>
 
-  <h1 class="text-center">
-    Your Habit List
-  </h1>
-
-  <% for (let i of myHabits) { %>
-
-    <div class="w-100 h-auto d-flex justify-content-between align-items-center 
-          text-white my-2 p-2 shadow-sm rounded fw-bold list-item">
+      <!-- number of days on which the task is done in past week -->
+      <!-- task status for today -->
       <div class="px-1">
-        <%= i.name %>
+        <%= i.completedDays %> / 7 Days | Today: <%= i.weeklyStatus[6] ===
+        'true' ? 'Done' : 'Not Done' %>
       </div>
-      
-      <div class="px-1">
-        <%= i.completedDays %> / 7 Days | Today: <%= i.weeklyStatus[6] === 'true' ? 'Done' : 'Not Done' %>
-      </div>
-
     </div>
-    
-  <% } %>
 
-</div>
-
+    <% } %>
+  </div>
 </div>

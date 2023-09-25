@@ -1,84 +1,82 @@
-
-
-
 <div class="w-100 h-100 rounded p-4 overflow-auto">
-    
-    <div class="w-100">
-        
-        <nav class="navbar bg-white rounded shadow-sm">
-            <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1 text-primary">
-                    Your Habits
-                </span>
-                <span class="navbar-brand mb-0 h1 text-primary">
-                    <%= date %>
-                </span>
-            </div>
-        </nav>
+  <div class="w-100">
+    <!-- page navbar -->
+    <nav class="navbar bg-white rounded shadow-sm">
+      <div class="container-fluid">
+        <!-- heading -->
+        <span class="navbar-brand mb-0 h1 text-primary"> Your Habits </span>
+        <!-- date -->
+        <span class="navbar-brand mb-0 h1 text-primary"> <%= date %> </span>
+      </div>
+    </nav>
 
-        <div class="w-100 h-75 d-flex flex-column align-items-center mt-3 flex-wrap p-2 overflow-y-auto">
+    <!-- main container -->
+    <div
+      class="w-100 h-75 d-flex flex-column align-items-center mt-3 flex-wrap p-2 overflow-y-auto"
+    >
+      <!-- looping over each habit inside the user's habit list -->
+      <% for (let i of myHabits) { %>
 
-            <% for (let i of myHabits) { %>
+      <!-- single habit -->
+      <div
+        class="w-75 m-2 h-auto rounded shadow p-2 d-flex flex-column list-item text-white"
+      >
+        <div class="w-100 d-flex justify-content-between p-2">
+          <div class="fw-bold fs-5">
+            <!-- habit name -->
+            <%= i.name %>
+            <br />
+            <small class="mt-0 fw-medium fs-6">
+              <!-- weekly status of complete day  -->
+              <%= i.completedDays %> / 7 days
+            </small>
+          </div>
 
-                <div class="w-75 m-2 h-auto rounded shadow p-2 d-flex flex-column list-item text-white">
-                    
-                    <div class="w-100 d-flex justify-content-between p-2">
-                        <div class="fw-bold fs-5">
-                            
-                            <%= i.name %>
-                            <br/>
-                            <small class="mt-0 fw-medium fs-6"> 
-                                <%= i.completedDays %> / 7 days
-                            </small>
-                        </div>
-
-                        <div class="fw-semibold">
-                            Added on :<%= i.createdAt %>
-                        </div>
-                    </div>
-
-                    <div class="w-full d-flex justify-content-between p-2 flex-wrap">
-                        
-                        <% i.weeklyStatus.map((day,index) => { %>
-
-                            <div class="card mb-3 shadow day-card" style="max-width: 10rem;">
-                                <div class="card-header fw-bolder"><%= weekDays[index] %></div>
-                                <div class="card-body text-secondary d-flex justify-content-between">
-                                  
-                                    <a href="/my-habits/toggle-status/?id=<%=i.id%>&i=<%=index%>&status=true" 
-                                        class="m-1 text-decoration-none <%= day === 'true' ? 'text-success h4' : 'text-body-tertiary h5' %>">
-                                        
-                                            <i class="fa-solid fa-circle-check"></i>
-                                        
-                                    </a>
-
-                                    <a href="/my-habits/toggle-status/?id=<%=i.id%>&i=<%=index%>&status=false" 
-                                        class="m-1 text-decoration-none <%= day === 'false' ? 'text-danger h4' : 'text-body-tertiary h5' %>">
-                                        
-                                            <i class="fa-solid fa-circle-xmark"></i>
-                                        
-                                    </a>
-                                        
-                                    <a href="/my-habits/toggle-status/?id=<%=i.id%>&i=<%=index%>&status=null" 
-                                        class="m-1 text-decoration-none <%= day === 'null' || day === null ? 'text-info h4' : 'text-body-tertiary h5' %>">
-                                            <i class="fa-solid fa-ellipsis"></i>
-                                    </a>
-                                  
-                                </div>
-                            </div>
-                            
-
-                        <% }) %>
-
-                    </div>
-
-                </div>
-            
-            <% } %>
-
-            
+          <!-- day on which habit added -->
+          <div class="fw-semibold">Added on :<%= i.createdAt %></div>
         </div>
 
-    </div>
+        <!-- showing weekly status to habit -->
+        <div class="w-full d-flex justify-content-between p-2 flex-wrap">
+          <% i.weeklyStatus.map((day,index) => { %>
 
+          <!-- a single day card -->
+          <div class="card mb-3 shadow day-card" style="max-width: 10rem">
+            <div class="card-header fw-bolder"><%= weekDays[index] %></div>
+            <div
+              class="card-body text-secondary d-flex justify-content-between"
+            >
+              <!-- done button -->
+              <a
+                href="/my-habits/toggle-status/?id=<%=i.id%>&i=<%=index%>&status=true"
+                class="m-1 text-decoration-none <%= day === 'true' ? 'text-success h4' : 'text-body-tertiary h5' %>"
+              >
+                <i class="fa-solid fa-circle-check"></i>
+              </a>
+
+              <!-- not done button -->
+              <a
+                href="/my-habits/toggle-status/?id=<%=i.id%>&i=<%=index%>&status=false"
+                class="m-1 text-decoration-none <%= day === 'false' ? 'text-danger h4' : 'text-body-tertiary h5' %>"
+              >
+                <i class="fa-solid fa-circle-xmark"></i>
+              </a>
+
+              <!-- pending button -->
+              <a
+                href="/my-habits/toggle-status/?id=<%=i.id%>&i=<%=index%>&status=null"
+                class="m-1 text-decoration-none <%= day === 'null' || day === null ? 'text-info h4' : 'text-body-tertiary h5' %>"
+              >
+                <i class="fa-solid fa-ellipsis"></i>
+              </a>
+            </div>
+          </div>
+
+          <% }) %>
+        </div>
+      </div>
+
+      <% } %>
+    </div>
+  </div>
 </div>

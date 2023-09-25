@@ -1,6 +1,7 @@
 
 require('dotenv').config();
-
+// importing mongoose file form config folder
+require('./config/mongoose').connect();
 // exporting all the function and libraries of express
 const express=require('express');
 
@@ -10,13 +11,14 @@ const path=require('path');
 // port id
 const {PORT} = process.env;
 
-// importing mongoose file form config folder
-const database=require('./config/mongoose');
-
 // app having all the function of express and firing up our framework 
 const app=express();
 
-app.use(express.urlencoded()); 
+// for data passed inside the url
+app.use(express.urlencoded({
+    extended:true
+})); 
+// static folder
 app.use(express.static('assets'));
 
 // importing layouts 
